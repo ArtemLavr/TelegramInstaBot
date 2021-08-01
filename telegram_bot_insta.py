@@ -19,7 +19,7 @@ import gspread
 from oauth2client.service_account import ServiceAccountCredentials
 import pandas as pd
 
-"https://habr.com/ru/"
+
 
 
 # Enable logging
@@ -174,13 +174,13 @@ def check_work(update, context):
     username, password, bloger = setting_load()
     if username and password and bloger:
 
-        driver = webdriver.Firefox()
-        #   chrome_options = webdriver.ChromeOptions()
-        # chrome_options.add_argument("--headless")
-        # chrome_options.add_argument("--disable-dev-shm-usage")
-        # chrome_options.add_argument("--no-sandbox")
-        # chrome_options.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
-        # driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=chrome_options)
+        # driver = webdriver.Firefox()
+        chrome_options = webdriver.ChromeOptions()
+        chrome_options.add_argument("--headless")
+        chrome_options.add_argument("--disable-dev-shm-usage")
+        chrome_options.add_argument("--no-sandbox")
+        chrome_options.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
+        driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=chrome_options)
         
         driver.get("https://www.instagram.com/accounts/login/")
         sleep(getRandomTime())
